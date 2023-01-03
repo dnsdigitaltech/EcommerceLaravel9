@@ -47,9 +47,11 @@ class AdminController extends Controller
         return redirect()->back()->with($notification);
     } //End Method
 
-    public function ChangePassword()
+    public function AdminChangePassword()
     {
-        return view('admin.admin_change_password');
+        $id = Auth::user()->id;
+        $adminData = User::find($id);
+        return view('admin.admin_change_password',['adminData' => $adminData]);
     } //End Method
 
     public function UpdatePassword(Request $request)
