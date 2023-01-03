@@ -42,7 +42,7 @@ class AdminController extends Controller
         $data->save();
         $notification = array(
             'message'       => 'Perfil atualizado com sucesso.',
-            'alert-type'    => 'info'
+            'alert-type'    => 'success'
         );
         return redirect()->back()->with($notification);
     } //End Method
