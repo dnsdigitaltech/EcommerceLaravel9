@@ -21,7 +21,7 @@ class AdminController extends Controller
     {
         $id = Auth::user()->id;
         $adminData = User::find($id);
-        return view('admin.admin_profile_view',['minData' => $adminData]);
+        return view('admin.admin_profile_view',['adminData' => $adminData]);
     } //End Method
 
     public function AdminDestroy(Request $request)
