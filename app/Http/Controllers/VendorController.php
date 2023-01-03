@@ -33,6 +33,8 @@ class VendorController extends Controller
         $data->email = $request->email;
         $data->phone = $request->phone;
         $data->address = $request->address;
+        $data->vendor_join = $request->vendor_join;
+        $data->vendor_short_info = $request->vendor_short_info;
         if ($request->file('photo')) {
             $file = $request->file('photo');
             @unlink(public_path('upload/vendor_images/'.$data->photo));
@@ -46,6 +48,32 @@ class VendorController extends Controller
             'alert-type'    => 'success'
         );
         return redirect()->back()->with($notification);
+    } //End Method
+
+    public function VendorChangePassword()
+    {
+        $id = Auth::user()->id;
+        $vendorData = User::find($id);
+        return view('vendor.vendor_change_password',['vendorData' => $vendorData]);
+    } //End Method
+
+    public function VendorUpdatePassword(Request $request)
+    {
+        $validateData = $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed',
+            'new_password_confirmation' => 'required|same:new_password',
+        ]);
+
+        if (Hash::check($request->old_password,Auth::user()->password)) {
+            User::whereId(Auth::user()->id)->update([
+                'password' => Hash::make($request->new_password),
+            ]);
+            return redirect()->back()->with("status", "Senha atualizada com sucesso");
+        }else{
+            return redirect()->back()->with("error", "A senha antiga não está correta");
+        }
+
     } //End Method
 
     public function VendorDestroy(Request $request)

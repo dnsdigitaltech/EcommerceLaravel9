@@ -4,13 +4,13 @@
 <div class="page-content"> 
     <!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-        <div class="breadcrumb-title pe-3">Perfil do usuário</div>
+        <div class="breadcrumb-title pe-3">Senha do usuário</div>
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
                     <li class="breadcrumb-item"><a href="{{route('vendor.dashboard')}}" title="Dashboard"><i class="lni lni-dashboard"></i></a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Atualizar Perfil</li>
+                    <li class="breadcrumb-item active" aria-current="page">Atualizar Senha</li>
                 </ol>
             </nav>
         </div>        
@@ -47,86 +47,53 @@
                 <div class="col-lg-8">
                     <div class="card">
                         <div class="card-body">
-                            <form method="POST" action="{{route('vendor.profile.store')}}" enctype="multipart/form-data">
+                            <form method="POST" action="{{route('vendor.update.password')}}" enctype="multipart/form-data">
                                 @csrf
+                                @if (session('status'))
+                                    <div class="alert alert-success" role="alert">
+                                        {{session('status')}}
+                                    </div>
+                                @elseif(session('error'))
+                                    <div class="alert alert-danger" role="alert">
+                                        {{session('error')}}
+                                    </div>
+                                @endif
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Nome de usuário</h6>
+                                        <h6 class="mb-0">Senha antiga</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input type="text" name="username" class="form-control" value="{{$vendorData->username}}" disabled/>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Nome</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <input type="text" name="name" class="form-control" value="{{$vendorData->name}}" />
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">E-mail</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <input type="text" name="email" class="form-control" value="{{$vendorData->email}}" />
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Telefone</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <input type="text" name="phone" class="form-control" value="{{$vendorData->phone}}" />
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Endereço</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <input type="text" name="address" class="form-control" value="{{$vendorData->address}}" />
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Data adesão fornecedor</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <select class="form-select mb-3" name="vendor_join" aria-label="Default select example">
-                                            <option selected="">...</option>
-                                            <option value="2021" {{$vendorData->vendor_join == 2021 ? 'selected' : ''}}>2021</option>
-                                            <option value="2022" {{$vendorData->vendor_join == 2022 ? 'selected' : ''}}>2022</option>
-                                            <option value="2023" {{$vendorData->vendor_join == 2023 ? 'selected' : ''}}>2023</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Informações do fornecedor</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <textarea name="vendor_short_info" class="form-control" id="inputAddress" placeholder="Informações do fornecedor" rows="3">{{$vendorData->vendor_short_info}}</textarea>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Foto</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <input type="file" name="photo" class="form-control" id="image" />
+                                        <input type="password" name="old_password" class="form-control 
+                                        @error('old_password') is-invalid @enderror" id="current_password" placeholder="Senha antiga"/>
+                                        @error('old_password')
+                                            <span class="text-danger">{{$message}}</span>
+                                        @enderror
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0"></h6>
+                                        <h6 class="mb-0">Nova senha</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <img id="showImage" src="{{!empty($vendorData->photo) ? url('upload/vendor_images/'.$vendorData->photo) : url('upload/no_image.jpg')}}" alt="Admin" style="width: 100px; height: 100px;">
+                                        <input type="password" name="new_password" class="form-control 
+                                        @error('new_password') is-invalid @enderror" id="new_password" placeholder="Nova senha"/>
+                                        @error('new_password')
+                                            <span class="text-danger">{{$message}}</span>
+                                        @enderror
                                     </div>
                                 </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Confirma nova senha</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="password" name="new_password_confirmation" class="form-control" placeholder="Confirma nova senha"/>
+                                    </div>
+                                </div>
+
+                                
                                 
                                 <div class="row">
                                     <div class="col-sm-3"></div>
