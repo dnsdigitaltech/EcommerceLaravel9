@@ -47,7 +47,7 @@
                 <div class="col-lg-8">
                     <div class="card">
                         <div class="card-body">
-                            <form method="POST" action="{{route('admin.profile.store')}}" enctype="multipart/form-data">
+                            <form method="POST" action="{{route('update.password')}}" enctype="multipart/form-data">
                                 @csrf
                                 @if (session('status'))
                                     <div class="alert alert-success" role="alert">

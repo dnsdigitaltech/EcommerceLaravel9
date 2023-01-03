@@ -36,6 +36,7 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
     Route::get('/admin/perfil', [AdminController::class, 'AdminProfile'])->name('admin.profile');
     Route::post('/admin/perfil/atualiza', [AdminController::class, 'AdminProfileStore'])->name('admin.profile.store');
     Route::get('/admin/senha', [AdminController::class, 'AdminChangePassword'])->name('admin.change.password');
+    Route::post('/admin/senha/atualiza', [AdminController::class, 'AdminUpdatePassword'])->name('update.password');
 });
 
 //Vendor Dashboard

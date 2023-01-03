@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 class AdminController extends Controller
@@ -54,24 +55,21 @@ class AdminController extends Controller
         return view('admin.admin_change_password',['adminData' => $adminData]);
     } //End Method
 
-    public function UpdatePassword(Request $request)
+    public function AdminUpdatePassword(Request $request)
     {
         $validateData = $request->validate([
-            'oldpassword' => 'required',
-            'newpassword' => 'required',
-            'confirm_password' => 'required|same:newpassword',
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed',
+            'new_password_confirmation' => 'required|same:new_password',
         ]);
 
-        $hashedPassword = Auth::user()->password;
-        if (Hash::check($request->oldpassword,$hashedPassword)) {
-            $users = User::find(Auth::id());
-            $users->password = bcrypt($request->newpassword);
-            $users->save();
-            session()->flash('message', 'Senha atualizada com sucesso');
-            return redirect()->back();
+        if (Hash::check($request->old_password,Auth::user()->password)) {
+            User::whereId(Auth::user()->id)->update([
+                'password' => Hash::make($request->new_password),
+            ]);
+            return redirect()->back()->with("status", "Senha atualizada com sucesso");
         }else{
-            session()->flash('message', 'A senha antiga não está correta');
-            return redirect()->back();
+            return redirect()->back()->with("error", "A senha antiga não está correta");
         }
 
     } //End Method
