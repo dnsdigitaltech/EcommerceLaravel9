@@ -13,7 +13,7 @@
     <ul class="metismenu" id="menu">
         <li>
             <a href="{{route('admin.dashboard')}}">
-                <div class="parent-icon"><i class='bx bx-cookie'></i>
+                <div class="parent-icon"><i class="lni lni-dashboard"></i>
                 </div>
                 <div class="menu-title">Dashboard</div>
             </a>
