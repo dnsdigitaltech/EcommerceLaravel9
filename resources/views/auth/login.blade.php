@@ -26,7 +26,7 @@
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                    <a href="./" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
                     <span></span> Minha conta
                 </div>
             </div>
@@ -44,7 +44,7 @@
                                     <div class="padding_eight_all bg-white">
                                         <div class="heading_s1">
                                             <h1 class="mb-5">Login</h1>
-                                            <p class="mb-30">Não tem uma conta? <a href="page-register.html">Crie aqui</a></p>
+                                            <p class="mb-30">Não tem uma conta? <a href="{{ route('register') }}">Crie aqui</a></p>
                                         </div>
                                         <form method="POST" action="{{ route('login') }}">
                                             @csrf
