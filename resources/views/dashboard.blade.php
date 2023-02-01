@@ -16,6 +16,8 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{asset('frontend/assets/css/plugins/animate.min.css')}}" />
     <link rel="stylesheet" href="{{asset('frontend/assets/css/main.css?v=5.3')}}" />
+    <!-- Jquery -->
+	<script src="https://code.jquery.com/jquery-3.6.3.slim.min.js"></script>
 </head>
 
 <body>
