@@ -23,6 +23,8 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->group(function(){
     Route::get('/dashboard', [UserController::class, 'UserDashboard'])->name('dashboard');
+    Route::post('/usuario/perfil', [UserController::class, 'UserProfileStore'])->name('user.profile.store');
+    Route::get('/usuario/logout', [UserController::class, 'UserLogout'])->name('user.logout');
 }); //Group Middleware End
 
 

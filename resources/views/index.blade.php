@@ -29,10 +29,10 @@
                                         <a class="nav-link" id="address-tab" data-bs-toggle="tab" href="#address" role="tab" aria-controls="address" aria-selected="true"><i class="fi-rs-marker mr-10"></i>My Address</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="account-detail-tab" data-bs-toggle="tab" href="#account-detail" role="tab" aria-controls="account-detail" aria-selected="true"><i class="fi-rs-user mr-10"></i>Account details</a>
+                                        <a class="nav-link" id="account-detail-tab" data-bs-toggle="tab" href="#account-detail" role="tab" aria-controls="account-detail" aria-selected="true"><i class="fi-rs-user mr-10"></i>Detalhes da conta</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="page-login.html"><i class="fi-rs-sign-out mr-10"></i>Logout</a>
+                                        <a class="nav-link" href="{{route('user.logout')}}"><i class="fi-rs-sign-out mr-10"></i>Sair</a>
                                     </li>
                                 </ul>
                             </div>
@@ -43,6 +43,9 @@
                                     <div class="card">
                                         <div class="card-header">
                                             <h3 class="mb-0">Olá {{ Auth::user()->name }}</h3>
+                                            <div class="p-2">
+                                                <img src="{{!empty($userData->photo) ? url('upload/user_images/'.$userData->photo) : url('upload/no_image.jpg')}}" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
+                                            </div>                                            
                                         </div>
                                         <div class="card-body">
                                             <p>
@@ -163,7 +166,8 @@
                                             <h5>Detalhes da conta</h5>
                                         </div>
                                         <div class="card-body">
-                                            <form method="post" name="enq">
+                                            <form method="POST" action="{{route('user.profile.store')}}" enctype="multipart/form-data">
+                                                @csrf
                                                 <div class="row">
                                                     <div class="form-group col-md-12">
                                                         <label>Nome de Usuário <span class="required">*</span></label>
