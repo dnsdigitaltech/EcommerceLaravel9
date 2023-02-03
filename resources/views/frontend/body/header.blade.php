@@ -9,9 +9,9 @@
                     <div class="header-info">
                         <ul>
                             
-                            <li><a href="page-account.html">My Cart</a></li>
+                            <li><a href="page-account.html">Meu carrinho</a></li>
                             <li><a href="shop-wishlist.html">Checkout</a></li>
-                            <li><a href="shop-order.html">Order Tracking</a></li>
+                            <li><a href="shop-order.html">Rastreamento de pedidos</a></li>
                         </ul>
                     </div>
                 </div>
@@ -19,9 +19,9 @@
                     <div class="text-center">
                         <div id="news-flash" class="d-inline-block">
                             <ul>
-                                <li>100% Secure delivery without contacting the courier</li>
-                                <li>Supper Value Deals - Save more with coupons</li>
-                                <li>Trendy 25silver jewelry, save up 35% off today</li>
+                                <li>Entrega 100% segura sem contato com o correio</li>
+                                <li>Economize mais com cupons</li>
+                                <li>Joias modernas de prata 25, economize 35% hoje</li>
                             </ul>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                         <ul>
                            
                             <li>
-                                <a class="language-dropdown-active" href="#">English <i class="fi-rs-angle-small-down"></i></a>
+                                <a class="language-dropdown-active" href="#">Português <i class="fi-rs-angle-small-down"></i></a>
                                 <ul class="language-dropdown">
                                     <li>
                                         <a href="#"><img src="{{asset('frontend/assets/imgs/theme/flag-fr.png')}}" alt="" />Français</a>
@@ -45,7 +45,7 @@
                                 </ul>
                             </li>
 
-                             <li>Need help? Call Us: <strong class="text-brand"> + 1800 900</strong></li>
+                             <li>Preciso de ajuda? Ligue-nos: <strong class="text-brand">(21)0000-0000</strong></li>
                            
                         </ul>
                     </div>
@@ -63,19 +63,19 @@
                     <div class="search-style-2">
                         <form action="#">
                             <select class="select-active">
-                                <option>All Categories</option>
-                                <option>Milks and Dairies</option>
-                                <option>Wines & Alcohol</option>
-                                <option>Clothing & Beauty</option>
-                                <option>Pet Foods & Toy</option>
-                                <option>Fast food</option>
-                                <option>Baking material</option>
-                                <option>Vegetables</option>
-                                <option>Fresh Seafood</option>
-                                <option>Noodles & Rice</option>
-                                <option>Ice cream</option>
+                                <option>Categorias</option>
+                                <option>Leites e Laticínios</option>
+                                <option>Vinhos e álcool</option>
+                                <option>Roupas e Beleza</option>
+                                <option>Alimentos</option>
+                                <option>Comida rápida</option>
+                                <option>Material de cozimento</option>
+                                <option>Legumes</option>
+                                <option>Frutos do mar frescos</option>
+                                <option>Macarrão e Arroz</option>
+                                <option>Outros</option>
                             </select>
-                            <input type="text" placeholder="Search for items..." />
+                            <input type="text" placeholder="Buscar por itens..." />
                         </form>
                     </div>
                     <div class="header-action-right">
@@ -83,20 +83,20 @@
                             <div class="search-location">
                                 <form action="#">
                                     <select class="select-active">
-                                        <option>Your Location</option>
-                                        <option>Alabama</option>
-                                        <option>Alaska</option>
-                                        <option>Arizona</option>
-                                        <option>Delaware</option>
-                                        <option>Florida</option>
-                                        <option>Georgia</option>
-                                        <option>Hawaii</option>
-                                        <option>Indiana</option>
-                                        <option>Maryland</option>
-                                        <option>Nevada</option>
-                                        <option>New Jersey</option>
-                                        <option>New Mexico</option>
-                                        <option>New York</option>
+                                        <option>Sua localização</option>
+                                        <option>Rio de Janeiro</option>
+                                        <option>São Paulo</option>
+                                        <option>Minas Gerais</option>
+                                        <option>Espírito Santo</option>
+                                        <option>Bahia</option>
+                                        <option>Pernambuco</option>
+                                        <option>Ceará</option>
+                                        <option>Paraíba</option>
+                                        <option>Sergipe</option>
+                                        <option>Acre</option>
+                                        <option>Mato Grosso</option>
+                                        <option>Santa Catarina</option>
+                                        <option>Tocantins</option>
                                     </select>
                                 </form>
                             </div>
@@ -106,14 +106,14 @@
                                     <img class="svgInject" alt="Nest" src="{{asset('frontend/assets/imgs/theme/icons/icon-heart.svg')}}" />
                                     <span class="pro-count blue">6</span>
                                 </a>
-                                <a href="shop-wishlist.html"><span class="lable">Wishlist</span></a>
+                                <a href="shop-wishlist.html"><span class="lable">Lista de Desejos</span></a>
                             </div>
                             <div class="header-action-icon-2">
                                 <a class="mini-cart-icon" href="shop-cart.html">
                                     <img alt="Nest" src="{{asset('frontend/assets/imgs/theme/icons/icon-cart.svg')}}" />
                                     <span class="pro-count blue">2</span>
                                 </a>
-                                <a href="shop-cart.html"><span class="lable">Cart</span></a>
+                                <a href="shop-cart.html"><span class="lable">Carrinho</span></a>
                                 <div class="cart-dropdown-wrap cart-dropdown-hm2">
                                     <ul>
                                         <li>
@@ -121,8 +121,8 @@
                                                 <a href="shop-product-right.html"><img alt="Nest" src="{{asset('frontend/assets/imgs/shop/thumbnail-3.jpg')}}" /></a>
                                             </div>
                                             <div class="shopping-cart-title">
-                                                <h4><a href="shop-product-right.html">Daisy Casual Bag</a></h4>
-                                                <h4><span>1 × </span>$800.00</h4>
+                                                <h4><a href="shop-product-right.html">Bolsa casual margarida</a></h4>
+                                                <h4><span>1 × </span>R$ 100.00</h4>
                                             </div>
                                             <div class="shopping-cart-delete">
                                                 <a href="#"><i class="fi-rs-cross-small"></i></a>
@@ -133,8 +133,8 @@
                                                 <a href="shop-product-right.html"><img alt="Nest" src="{{asset('frontend/assets/imgs/shop/thumbnail-2.jpg')}}" /></a>
                                             </div>
                                             <div class="shopping-cart-title">
-                                                <h4><a href="shop-product-right.html">Corduroy Shirts</a></h4>
-                                                <h4><span>1 × </span>$3200.00</h4>
+                                                <h4><a href="shop-product-right.html">Camisas de veludo cotelê</a></h4>
+                                                <h4><span>1 × </span>R$ 99,00</h4>
                                             </div>
                                             <div class="shopping-cart-delete">
                                                 <a href="#"><i class="fi-rs-cross-small"></i></a>
@@ -143,42 +143,48 @@
                                     </ul>
                                     <div class="shopping-cart-footer">
                                         <div class="shopping-cart-total">
-                                            <h4>Total <span>$4000.00</span></h4>
+                                            <h4>Total <span>R$ 199,00</span></h4>
                                         </div>
                                         <div class="shopping-cart-button">
-                                            <a href="shop-cart.html" class="outline">View cart</a>
+                                            <a href="shop-cart.html" class="outline">Ver carrinho</a>
                                             <a href="shop-checkout.html">Checkout</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="header-action-icon-2">
-                                <a href="page-account.html">
+                                <a href="{{route('login')}}">
                                     <img class="svgInject" alt="Nest" src="{{asset('frontend/assets/imgs/theme/icons/icon-user.svg')}}" />
                                 </a>
-                                <a href="page-account.html"><span class="lable ml-0">Account</span></a>
-                                <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
-                                    <ul>
-                                        <li>
-                                            <a href="page-account.html"><i class="fi fi-rs-user mr-10"></i>My Account</a>
-                                        </li>
-                                        <li>
-                                            <a href="page-account.html"><i class="fi fi-rs-location-alt mr-10"></i>Order Tracking</a>
-                                        </li>
-                                        <li>
-                                            <a href="page-account.html"><i class="fi fi-rs-label mr-10"></i>My Voucher</a>
-                                        </li>
-                                        <li>
-                                            <a href="shop-wishlist.html"><i class="fi fi-rs-heart mr-10"></i>My Wishlist</a>
-                                        </li>
-                                        <li>
-                                            <a href="page-account.html"><i class="fi fi-rs-settings-sliders mr-10"></i>Setting</a>
-                                        </li>
-                                        <li>
-                                            <a href="page-login.html"><i class="fi fi-rs-sign-out mr-10"></i>Sign out</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                @Auth
+                                    <a href="{{route('login')}}"><span class="lable ml-0">Conta</span></a>
+                                    <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
+                                        <ul>
+                                            <li>
+                                                <a href="{{route('dashboard')}}"><i class="fi fi-rs-user mr-10"></i>Minha conta</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{route('dashboard')}}"><i class="fi fi-rs-location-alt mr-10"></i>Rastreamento</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{route('dashboard')}}"><i class="fi fi-rs-label mr-10"></i>Meu Voucher</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{route('dashboard')}}"><i class="fi fi-rs-heart mr-10"></i>Lista de Desejos</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{route('dashboard')}}"><i class="fi fi-rs-settings-sliders mr-10"></i>Configuração</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{route('user.logout')}}"><i class="fi fi-rs-sign-out mr-10"></i>Sair</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                @else
+                                    <a href="{{route('login')}}"><span class="lable ml-0">Login</span></a>
+                                    <span class="lable ml-1">|</span>
+                                    <a href="{{route('register')}}"><span class="lable ml-1">Registrar</span></a>
+                                @endauth
                             </div>
                         </div>
                     </div>
@@ -429,7 +435,7 @@
 
                 <div class="hotline d-none d-lg-flex">
                     <img src="{{asset('frontend/assets/imgs/theme/icons/icon-headphone.svg')}}" alt="hotline" />
-                    <p>1900 - 888<span>24/7 Support Center</span></p>
+                    <p>(21)0000-0000<span>24/7 Centro de Ajuda</span></p>
                 </div>
                 <div class="header-action-icon-2 d-block d-lg-none">
                     <div class="burger-icon burger-icon-white">
