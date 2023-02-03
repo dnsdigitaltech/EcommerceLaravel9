@@ -39,6 +39,25 @@ class UserController extends Controller
         return redirect()->back()->with($notification);
     } //End Method
 
+    public function UserUpdatePassword(Request $request)
+    {
+        $validateData = $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed',
+            'new_password_confirmation' => 'required|same:new_password',
+        ]);
+
+        if (Hash::check($request->old_password,Auth::user()->password)) {
+            User::whereId(Auth::user()->id)->update([
+                'password' => Hash::make($request->new_password),
+            ]);
+            return redirect()->back()->with("status", "Senha atualizada com sucesso");
+        }else{
+            return redirect()->back()->with("error", "A senha antiga não está correta");
+        }
+
+    } //End Method
+
     public function UserLogout(Request $request)
     {
         Auth::guard('web')->logout();

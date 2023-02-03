@@ -214,7 +214,7 @@
                                             <h5>Alterar a senha</h5>
                                         </div>
                                         <div class="card-body">
-                                            <form method="POST" action="{{route('user.profile.store')}}">
+                                            <form method="POST" action="{{route('user.update.password')}}">
                                                 @csrf
                                                 @if (session('status'))
                                                     <div class="alert alert-success" role="alert">
