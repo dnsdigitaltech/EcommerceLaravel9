@@ -62,6 +62,7 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
     Route::controller(BrandController::class)->group(function(){
         Route::get('/todas/marcas', 'AllBrand')->name('all.brand');
         Route::get('/adicionar/marca', 'AddBrand')->name('add.brand');
+        Route::post('/adicionar/marca', 'StoreBrand')->name('store.brand');
     });
 }); //End Middleware
 
