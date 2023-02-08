@@ -59,9 +59,8 @@ Route::get('/vendor/login', [VendorController::class, 'vendorLogin']);
 
 Route::middleware(['auth', 'role:admin'])->group(function(){
     //Brand Routes
-    Route:controller(BrandController::class)->group(function(){
-        Route::get('/todas/marcas', 'AllBrand')->name('all.brand');
-    });
+    Route::get('/todas/marcas', [BrandController::class,'AllBrand'])->name('all.brand');
+    
 }); //End Middleware
 
 require __DIR__.'/auth.php';
