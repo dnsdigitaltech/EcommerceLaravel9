@@ -96,6 +96,7 @@
 		  });
 	  </script>
 	  <script src="{{ asset('adminbackend/assets/js/index.js')}}"></script>
+	  <script src="{{ asset('adminbackend/assets/js/validate.min.js')}}"></script>
 	<!--app JS-->
 	<script src="{{ asset('adminbackend/assets/js/app.js')}}"></script>
 	<!--toastr JS-->
