@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Backend\BrandController;
+use App\Http\Controllers\Backend\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,6 +66,17 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
         Route::post('/adicionar/marca', 'StoreBrand')->name('store.brand');
         Route::get('/editar/marca/{id}', 'EditBrand')->name('edit.brand');
         Route::post('/update/marca', 'UpdateBrand')->name('update.brand');
+        Route::get('/delete/marca/{id}', 'DeleteBrand')->name('delete.brand');
+    });
+
+    //Category Routes
+    Route::controller(CategoryController::class)->group(function(){
+        Route::get('/todas/categorias', 'AllCategory')->name('all.category');
+        Route::get('/adicionar/marca', 'AddBrand')->name('add.brand');
+        Route::post('/adicionar/marca', 'StoreBrand')->name('store.brand');
+        Route::get('/editar/marca/{id}', 'EditBrand')->name('edit.brand');
+        Route::post('/update/marca', 'UpdateBrand')->name('update.brand');
+        Route::get('/delete/marca/{id}', 'DeleteBrand')->name('delete.brand');
     });
 }); //End Middleware
 
