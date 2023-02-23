@@ -72,8 +72,8 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
     //Category Routes
     Route::controller(CategoryController::class)->group(function(){
         Route::get('/todas/categorias', 'AllCategory')->name('all.category');
-        Route::get('/adicionar/marca', 'AddBrand')->name('add.brand');
-        Route::post('/adicionar/marca', 'StoreBrand')->name('store.brand');
+        Route::get('/adicionar/categoria', 'AddCategory')->name('add.category');
+        Route::post('/adicionar/categoria', 'StoreCategory')->name('store.category');
         Route::get('/editar/marca/{id}', 'EditBrand')->name('edit.brand');
         Route::post('/update/marca', 'UpdateBrand')->name('update.brand');
         Route::get('/delete/marca/{id}', 'DeleteBrand')->name('delete.brand');

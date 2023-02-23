@@ -40,7 +40,7 @@
             <ul>
                 <li> <a href="{{route('all.category')}}"><i class="bx bx-right-arrow-alt"></i>Todas categorias</a>
                 </li>
-                <li> <a href="app-chat-box.html"><i class="bx bx-right-arrow-alt"></i>Add categoria</a>
+                <li> <a href="{{route('add.category')}}"><i class="bx bx-right-arrow-alt"></i>Add categoria</a>
                 </li>
             </ul>
         </li>
