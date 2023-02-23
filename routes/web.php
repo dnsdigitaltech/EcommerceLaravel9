@@ -74,9 +74,9 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
         Route::get('/todas/categorias', 'AllCategory')->name('all.category');
         Route::get('/adicionar/categoria', 'AddCategory')->name('add.category');
         Route::post('/adicionar/categoria', 'StoreCategory')->name('store.category');
-        Route::get('/editar/marca/{id}', 'EditBrand')->name('edit.brand');
-        Route::post('/update/marca', 'UpdateBrand')->name('update.brand');
-        Route::get('/delete/marca/{id}', 'DeleteBrand')->name('delete.brand');
+        Route::get('/editar/categoria/{id}', 'EditCategory')->name('edit.category');
+        Route::post('/update/categoria', 'UpdateCategory')->name('update.category');
+        Route::get('/delete/categoria/{id}', 'DeleteCategory')->name('delete.category');
     });
 }); //End Middleware
 
