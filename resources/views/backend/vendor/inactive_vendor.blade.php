@@ -46,7 +46,7 @@
                                     <td>{{$item->email}}</td>
                                     <td><span class="btn btn-secondary">{{$item->status}}</span></td>
                                     <td>
-                                        <a href="{{route('edit.subcategory', $item->id)}}" class="btn btn-info">Detalhe do fornecedor</a>
+                                        <a href="{{route('inactive.vendor.details', $item->id)}}" class="btn btn-info">Detalhe do fornecedor</a>
                                     </td>
                                 </tr>
                             @endforeach
