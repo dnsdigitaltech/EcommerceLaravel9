@@ -97,6 +97,7 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
         Route::get('/forncedores/inativos', 'InactiveVendor')->name('inactive.vendor');
         Route::get('/forncedores/ativos', 'ActiveVendor')->name('active.vendor');
         Route::get('/forncedores/inativos/detalhes/{id}', 'InactiveVendorDetails')->name('inactive.vendor.details');
+        Route::post('/forncedores/ativos', 'ActiveVendorApprove')->name('active.vendor.approve');
     });
 }); //End Middleware
 
