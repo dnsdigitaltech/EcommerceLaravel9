@@ -91,6 +91,11 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
         Route::post('/update/subcategoria', 'UpdateSubCategory')->name('update.subcategory');
         Route::get('/delete/subcategoria/{id}', 'DeleteSubCategory')->name('delete.subcategory');
     });
+
+    //Vendor Routes
+    Route::controller(AdminController::class)->group(function(){
+        Route::get('/forncedores/inativps', 'InactiveVendor')->name('inactive.vendor');
+    });
 }); //End Middleware
 
 require __DIR__.'/auth.php';
