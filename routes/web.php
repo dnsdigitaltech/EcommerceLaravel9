@@ -57,7 +57,9 @@ Route::middleware(['auth', 'role:vendor'])->group(function(){
 });
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin']);
-Route::get('/vendor/login', [VendorController::class, 'vendorLogin']);
+Route::get('/fornecedor/login', [VendorController::class, 'vendorLogin'])->name('vendor.login');
+Route::get('/torne-se/fornecedor', [VendorController::class, 'BecomeVendor'])->name('become.vendor');
+Route::post('/fornecedor/registrar', [VendorController::class, 'VendorRegister'])->name('vendor.register');
 
 Route::middleware(['auth', 'role:admin'])->group(function(){
     //Brand Routes

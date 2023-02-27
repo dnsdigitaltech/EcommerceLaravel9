@@ -18,6 +18,8 @@
 	<link href="{{asset('adminbackend/assets/css/bootstrap.min.css')}}" rel="stylesheet">
 	<link href="{{asset('adminbackend/assets/css/app.css')}}" rel="stylesheet">
 	<link href="{{asset('adminbackend/assets/css/icons.css')}}" rel="stylesheet">
+	<!-- Toastr CSS-->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 	<title>Vendedor Login</title>
 </head>
 
@@ -82,6 +84,8 @@
 	<script src="{{asset('adminbackend/assets/plugins/simplebar/js/simplebar.min.js')}}"></script>
 	<script src="{{asset('adminbackend/assets/plugins/metismenu/js/metisMenu.min.js')}}"></script>
 	<script src="{{asset('adminbackend/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js')}}"></script>
+	<!--toastr JS-->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 	<!--Password show & hide js -->
 	<script>
 		$(document).ready(function () {
