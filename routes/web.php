@@ -94,7 +94,8 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
 
     //Vendor Routes
     Route::controller(AdminController::class)->group(function(){
-        Route::get('/forncedores/inativps', 'InactiveVendor')->name('inactive.vendor');
+        Route::get('/forncedores/inativos', 'InactiveVendor')->name('inactive.vendor');
+        Route::get('/forncedores/ativos', 'ActiveVendor')->name('active.vendor');
     });
 }); //End Middleware
 
