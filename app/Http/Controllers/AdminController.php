@@ -97,7 +97,7 @@ class AdminController extends Controller
 
     public function InactiveVendorDetails($id) {
         $inActiveVendorDetails = User::findOrFail($id);
-        return view('backend.vendor.inactive_vendor_retails', ['inActiveVendorDetails' => $inActiveVendorDetails]);
+        return view('backend.vendor.inactive_vendor_details', ['inActiveVendorDetails' => $inActiveVendorDetails]);
     } //End Method
 
     public function ActiveVendorApprove(Request $request){
@@ -110,5 +110,22 @@ class AdminController extends Controller
             'alert-type'    => 'success'
         );
         return redirect()->route('active.vendor')->with($notification); 
+    } //End Method
+
+    public function ActiveVendorDetails($id) {
+        $activeVendorDetails = User::findOrFail($id);
+        return view('backend.vendor.active_vendor_details', ['activeVendorDetails' => $activeVendorDetails]);
+    } //End Method
+
+    public function InactiveVendorApprove(Request $request){
+        $vendor_id = $request->id;
+        $user = User::findOrFail($vendor_id)->update([
+            'status' => 'inactive',
+        ]);
+        $notification = array(
+            'message'       => 'Fornecerdor inativo com sucesso.',
+            'alert-type'    => 'success'
+        );
+        return redirect()->route('inactive.vendor')->with($notification); 
     } //End Method
 }
