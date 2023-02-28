@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
+use App\Http\Controllers\Backend\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -100,6 +101,11 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
         Route::post('/forncedores/ativos', 'ActiveVendorApprove')->name('active.vendor.approve');
         Route::get('/forncedores/ativos/detalhes/{id}', 'ActiveVendorDetails')->name('active.vendor.details');
         Route::post('/forncedores/inativos', 'InactiveVendorApprove')->name('inactive.vendor.approve');
+    });
+
+    //Product Routes
+    Route::controller(ProductController::class)->group(function(){
+        Route::get('/todos/produtos', 'AllProduct')->name('all.product');
     });
 }); //End Middleware
 

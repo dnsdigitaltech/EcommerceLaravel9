@@ -64,7 +64,7 @@
                 <div class="menu-title">Gerenciar Produtos</div>
             </a>
             <ul>
-                <li> <a href="{{route('all.subcategory')}}"><i class="bx bx-right-arrow-alt"></i>Todos produtos</a>
+                <li> <a href="{{route('all.product')}}"><i class="bx bx-right-arrow-alt"></i>Todos produtos</a>
                 </li>
                 <li> <a href="{{route('add.subcategory')}}"><i class="bx bx-right-arrow-alt"></i>Add produto</a>
                 </li>
