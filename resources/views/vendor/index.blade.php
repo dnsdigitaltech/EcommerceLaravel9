@@ -1,7 +1,17 @@
 @extends('vendor.vendor_dashboard')
 @section('vendor')   
+@php
+    $id = Auth::user()->id;
+    $vendorId = App\Models\User::find($id);
+    $status = $vendorId->status;
+@endphp
 <div class="page-content">
-
+    @if ($status === 'active')
+        <h4>Fornecedor está <span class="text-success">Ativo</span></h4>
+    @else
+        <h4>Fornecedor está <span class="text-danger">Inativo</span></h4>
+        <p class="text-danger"><b>Por favor aguarde pois o administrador irá checar e aprovar sua conta</b></p>
+    @endif
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
         <div class="col">
             <div class="card radius-10 bg-gradient-deepblue">
