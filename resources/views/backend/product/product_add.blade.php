@@ -84,19 +84,19 @@
                                 <div class="col-12">
                                     <label for="inputProductType" class="form-label">Marca</label>
                                     <select name="brand_id" class="form-select" id="inputProductType">
-                                        <option></option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                        <option>...</option>
+                                        @foreach ($brands as $brand)
+                                            <option value="{{$brand->id}}">{{$brand->brand_name}}</option>                                            
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="col-12">
                                     <label for="inputVendor" class="form-label">Categoria</label>
                                     <select name="category_id" class="form-select" id="inputVendor">
-                                        <option></option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                        <option>...</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{$category->id}}">{{$category->category_name}}</option>                                            
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="col-12">
@@ -111,10 +111,10 @@
                                 <div class="col-12">
                                     <label for="inputCollection" class="form-label">Selecione o fornecedor</label>
                                     <select name="vendor_id" class="form-select" id="inputCollection">
-                                        <option></option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                        <option>...</option>
+                                        @foreach ($activeVendor as $vendor)
+                                            <option value="{{$vendor->id}}">{{$vendor->name}}</option>                                            
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="col-12">
