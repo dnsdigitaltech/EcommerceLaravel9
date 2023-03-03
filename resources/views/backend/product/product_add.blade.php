@@ -103,9 +103,6 @@
                                     <label for="inputCollection" class="form-label">SubCategoria</label>
                                     <select name="subcategory_id" class="form-select" id="inputCollection">
                                         <option></option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
                                     </select>
                                 </div>
                                 <div class="col-12">
@@ -161,6 +158,31 @@
 
 </div>
 <script type="text/javascript">
+    $(document).ready(function(){
+        $('#multiImg').on('change', function(){ //on file input change
+            if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
+            {
+                var data = $(this)[0].files; //this file data
+                
+                $.each(data, function(index, file){ //loop though each file
+                    if(/(\.|\/)(gif|jpe?g|png)$/i.test(file.type)){ //check supported file type
+                        var fRead = new FileReader(); //new filereader
+                        fRead.onload = (function(file){ //trigger function on successful read
+                        return function(e) {
+                            var img = $('<img/>').addClass('thumb').attr('src', e.target.result) .width(100)
+                        .height(80); //create image element 
+                            $('#preview_img').append(img); //append image to output element
+                        };
+                        })(file);
+                        fRead.readAsDataURL(file); //URL representing the file's data.
+                    }
+                });
+                
+            }else{
+                alert("Your browser doesn't support File API!"); //if File API is absent
+            }
+        });
+    });
     function mainThamUrl(input){
         if(input.files && input.files[0]){
             var reader = new FileReader();
@@ -170,32 +192,29 @@
             reader.readAsDataURL(input.files[0]);
         }
     }
- 
     $(document).ready(function(){
-    $('#multiImg').on('change', function(){ //on file input change
-        if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
-        {
-            var data = $(this)[0].files; //this file data
-            
-            $.each(data, function(index, file){ //loop though each file
-                if(/(\.|\/)(gif|jpe?g|png)$/i.test(file.type)){ //check supported file type
-                    var fRead = new FileReader(); //new filereader
-                    fRead.onload = (function(file){ //trigger function on successful read
-                    return function(e) {
-                        var img = $('<img/>').addClass('thumb').attr('src', e.target.result) .width(100)
-                    .height(80); //create image element 
-                        $('#preview_img').append(img); //append image to output element
-                    };
-                    })(file);
-                    fRead.readAsDataURL(file); //URL representing the file's data.
-                }
-            });
-            
-        }else{
-            alert("Your browser doesn't support File API!"); //if File API is absent
-        }
+        $('select[name="category_id"]').on('change', function(){
+            var category_id = $(this).val();
+            if (category_id) {
+                $.ajax({
+                    url: "{{url('subcategoria/ajax')}}/"+category_id,
+                    tipe: "GET",
+                    dataType: "json",
+                    success: function(data){
+                        $('select[name="subcategory_id"]').html('');
+                        var d = $('select[name="subcategory_id"]').empty();
+                        $.each(data, function(key, value){
+                            console.log(value);
+                            $('select[name="subcategory_id"]').append('<option value="'+value.id+'">'+value.subcategory_name+'</option>');
+                        });
+                    },
+                });
+            }else{
+                alert('danger')
+            }
+        });
     });
-    });
+    
   
  </script>
 @endsection
