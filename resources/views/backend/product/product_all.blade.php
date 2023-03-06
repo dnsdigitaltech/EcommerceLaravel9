@@ -45,11 +45,33 @@
                                     <td>{{$item->product_name}}</td>
                                     <td>{{$item->product_price}}</td>
                                     <td>{{$item->product_qty}}</td>
-                                    <td>{{$item->discount_price}}</td>
-                                    <td>{{$item->status}}</td>
                                     <td>
-                                        <a href="{{route('edit.category', $item->id)}}" class="btn btn-info">Editar</a>
-                                        <a href="{{route('delete.category', $item->id)}}" class="btn btn-danger" id="delete">Remover</a>
+                                        @if ($item->discount_price == NULL)
+                                            <span class="badge rounded-pill bg-info"> Sem</span>
+                                        @else
+                                            @php
+                                                 $amount = $item->selling_price - $item->discount_price;
+                                                 $dicount = ($amount/$item->selling_price) * 100;
+                                            @endphp
+                                            <span class="badge rounded-pill bg-danger"> {{round($dicount)}}%</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($item->status == 1 )
+                                          <span class="badge rounded-pill bg-success"> Ativo</span> 
+                                        @else                                            
+                                            <span class="badge rounded-pill bg-danger"> Inativo</span> 
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a href="{{route('edit.category', $item->id)}}" class="btn btn-info" title="Editar dado"><i class="fa-solid fa-pen-to-square"></i></i></a>
+                                        <a href="{{route('delete.category', $item->id)}}" class="btn btn-danger" id="delete" title="Remover dado"><i class="fa-solid fa-trash"></i></a>
+                                        <a href="{{route('delete.category', $item->id)}}" class="btn btn-secondary" title="Detalhes"><i class="fa-solid fa-circle-info"></i></a>
+                                        @if ($item->status == 1 )
+                                            <a href="{{route('delete.category', $item->id)}}" class="btn btn-primary" title="Inativo"><i class="fa-solid fa-thumbs-down"></i></a>
+                                        @else
+                                            <a href="{{route('delete.category', $item->id)}}" class="btn btn-primary" title="Ativo"><i class="fa-solid fa-thumbs-up"></i></a>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

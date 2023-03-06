@@ -36,15 +36,15 @@ class ProductController extends Controller
     {
         $image = $request->file('product_thambnail');
         $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-        Image::make($image)->resize(800,800)->save('upload/products/thambnail'.$name_gen);
+        Image::make($image)->resize(800,800)->save('upload/products/thambnail/'.$name_gen);
         $save_url = 'upload/products/thambnail/'.$name_gen;
-
+        
         $product_id = Product::insertGetId([
             'brand_id'          => $request->brand_id,
             'category_id'       => $request->category_id,
             'subcategory_id'    => $request->subcategory_id,
             'product_name'      => $request->product_name,
-            'brand_id'          => strtolower(str_replace(' ','-',$request->product_name)),
+            'product_slug'          => strtolower(str_replace(' ','-',$request->product_name)),
             'product_code'      => $request->product_code,
             'product_qty'       => $request->product_qty,
             'product_tags'      => $request->product_tags,
@@ -64,7 +64,24 @@ class ProductController extends Controller
             'created_at'        => Carbon::now(),
         ]);
         ///Multiplas imagens aqui///
-        
+        $images = $request->file('multi_img');
+        foreach ($images as $img) {
+            $make_name = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
+            Image::make($img)->resize(800,800)->save('upload/products/multi-image/'.$make_name);
+            $uplodPath = 'upload/products/multi-image/'.$make_name;
+
+            MultiImg::insert([
+                'product_id' => $product_id,
+                'photo_name' => $uplodPath,
+                'created_at' => Carbon::now(),
+            ]); //End foreach
+        } //End mult_img
+
+        $notification = array(
+            'message'       => 'Produto inserido com sucesso.',
+            'alert-type'    => 'success'
+        );
+        return redirect()->route('all.product')->with($notification);
 
     } //End Method
 }
