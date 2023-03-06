@@ -84,4 +84,19 @@ class ProductController extends Controller
         return redirect()->route('all.product')->with($notification);
 
     } //End Method
+
+    public function EditProduct($id)
+    {
+        $activeVendor   = User::where('status', 'active')->where('role', 'vendor')->latest()->get();
+        $brands         = Brand::latest()->get();
+        $categories     = Category::latest()->get();
+        $product        = Product::findOrFail($id);
+        $subcategories  = SubCategory::latest()->get();
+        $data['activeVendor']   = $activeVendor;
+        $data['brands']         = $brands;
+        $data['categories']     = $categories;
+        $data['product']        = $product;
+        $data['subcategories']  = $subcategories;
+        return view('backend.product.product_edit', $data);
+    } //End Method
 }

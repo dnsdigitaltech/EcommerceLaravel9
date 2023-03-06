@@ -9,7 +9,7 @@
                     <ol class="breadcrumb mb-0 p-0">
                         <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">Todos os produtos</li>
+                        <li class="breadcrumb-item active" aria-current="page">Todos os produtos <span class="badge rounded-pill bg-danger"> {{count($products)}}</span></li>
                     </ol>
                 </nav>
             </div>
@@ -64,7 +64,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{route('edit.category', $item->id)}}" class="btn btn-info" title="Editar dado"><i class="fa-solid fa-pen-to-square"></i></i></a>
+                                        <a href="{{route('edit.product', $item->id)}}" class="btn btn-info" title="Editar dado"><i class="fa-solid fa-pen-to-square"></i></i></a>
                                         <a href="{{route('delete.category', $item->id)}}" class="btn btn-danger" id="delete" title="Remover dado"><i class="fa-solid fa-trash"></i></a>
                                         <a href="{{route('delete.category', $item->id)}}" class="btn btn-secondary" title="Detalhes"><i class="fa-solid fa-circle-info"></i></a>
                                         @if ($item->status == 1 )
