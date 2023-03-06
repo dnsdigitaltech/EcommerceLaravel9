@@ -108,6 +108,7 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
     Route::controller(ProductController::class)->group(function(){
         Route::get('/todos/produtos', 'AllProduct')->name('all.product');
         Route::get('/adicionar/produto', 'AddProduct')->name('add.product');
+        Route::post('/adicionar/produto', 'StoreProduct')->name('store.product');
     });
 }); //End Middleware
 
