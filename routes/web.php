@@ -110,6 +110,7 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
         Route::get('/adicionar/produto', 'AddProduct')->name('add.product');
         Route::post('/adicionar/produto', 'StoreProduct')->name('store.product');
         Route::get('/editar/produto/{id}', 'EditProduct')->name('edit.product');
+        Route::post('/editar/produto/', 'UpdateProduct')->name('update.product');
     });
 }); //End Middleware
 

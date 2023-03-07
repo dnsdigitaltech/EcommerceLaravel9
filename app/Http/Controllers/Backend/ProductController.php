@@ -99,4 +99,38 @@ class ProductController extends Controller
         $data['subcategories']  = $subcategories;
         return view('backend.product.product_edit', $data);
     } //End Method
+
+    public function UpdateProduct(Request $request)
+    {
+        $product_id = $request->id;
+        $product = Product::findOrFail($product_id)->update([
+            'brand_id'          => $request->brand_id,
+            'category_id'       => $request->category_id,
+            'subcategory_id'    => $request->subcategory_id,
+            'product_name'      => $request->product_name,
+            'product_slug'          => strtolower(str_replace(' ','-',$request->product_name)),
+            'product_code'      => $request->product_code,
+            'product_qty'       => $request->product_qty,
+            'product_tags'      => $request->product_tags,
+            'product_size'      => $request->product_size,
+            'product_color'     => $request->product_color,
+            'selling_price'     => $request->selling_price,
+            'discount_price'    => $request->discount_price,
+            'short_description' => $request->short_description,
+            'long_description'  => $request->long_description,            
+            'vendor_id'         => $request->vendor_id,
+            'hot_deals'         => $request->hot_deals,
+            'featured'          => $request->featured,
+            'especial_offer'    => $request->especial_offer,
+            'especial_deals'    => $request->especial_deals,
+            'status'            => 1,
+            'updated_at'        => Carbon::now(),
+        ]);
+
+        $notification = array(
+            'message'       => 'Produto atualizado com sucesso.',
+            'alert-type'    => 'success'
+        );
+        return redirect()->route('all.product')->with($notification);
+    } //End Method
 }
