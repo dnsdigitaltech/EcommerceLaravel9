@@ -88,7 +88,7 @@
                                         <select name="brand_id" class="form-select" id="inputProductType">
                                             <option></option>
                                             @foreach ($brands as $brand)
-                                                <option value="{{$brand->id}}">{{$brand->brand_name}}</option>                                            
+                                                <option value="{{$brand->id}}" {{$brand->id == $product->brand_id ? 'selected' : ''}}>{{$brand->brand_name}}</option>                                            
                                             @endforeach
                                         </select>
                                     </div>
@@ -97,7 +97,7 @@
                                         <select name="category_id" class="form-select" id="inputVendor">
                                             <option></option>
                                             @foreach ($categories as $category)
-                                                <option value="{{$category->id}}">{{$category->category_name}}</option>                                            
+                                                <option value="{{$category->id}}" {{$category->id == $product->category_id ? 'selected' : ''}}>{{$category->category_name}}</option>                                            
                                             @endforeach
                                         </select>
                                     </div>
@@ -106,7 +106,7 @@
                                         <select name="subcategory_id" class="form-select" id="inputCollection">
                                             <option></option>
                                             @foreach ($subcategories as $subcategory)
-                                                <option value="{{$subcategory->id}}">{{$subcategory->subcategory_name}}</option>                                            
+                                                <option value="{{$subcategory->id}}" {{$subcategory->id == $product->subcategory_id ? 'selected' : ''}}>{{$subcategory->subcategory_name}}</option>                                            
                                             @endforeach
                                         </select>
                                     </div>
@@ -115,7 +115,7 @@
                                         <select name="vendor_id" class="form-select" id="inputCollection">
                                             <option></option>
                                             @foreach ($activeVendor as $vendor)
-                                                <option value="{{$vendor->id}}">{{$vendor->name}}</option>                                            
+                                                <option value="{{$vendor->id}}" {{$vendor->id == $product->vendor_id ? 'selected' : ''}}>{{$vendor->name}}</option>                                            
                                             @endforeach
                                         </select>
                                     </div>
@@ -123,25 +123,25 @@
                                         <div class="row g-3">
                                             <div class="form-group col-md-6">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" name="hot_deals" type="checkbox" value="1" id="flexCheckDefault">
+                                                    <input class="form-check-input" name="hot_deals" type="checkbox" value="1" id="flexCheckDefault" {{$product->hot_deals == 1 ? 'checked' : ''}}>
                                                     <label class="form-check-label" for="flexCheckDefault">Ofertas quentes</label>
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" name="feature" type="checkbox" value="1" id="flexCheckDefault">
+                                                    <input class="form-check-input" name="featured" type="checkbox" value="1" id="flexCheckDefault" {{$product->featured == 1 ? 'checked' : ''}}>
                                                     <label class="form-check-label" for="flexCheckDefault">Destaque</label>
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" name="special_offer" type="checkbox" value="1" id="flexCheckDefault">
+                                                    <input class="form-check-input" name="especial_offer" type="checkbox" value="1" id="flexCheckDefault" {{$product->especial_offer == 1 ? 'checked' : ''}}>
                                                     <label class="form-check-label" for="flexCheckDefault">Oferta especial</label>
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" name="special_deals" type="checkbox" value="1" id="flexCheckDefault">
+                                                    <input class="form-check-input" name="especial_deals" type="checkbox" value="1" id="flexCheckDefault" {{$product->especial_deals == 1 ? 'checked' : ''}}>
                                                     <label class="form-check-label" for="flexCheckDefault">Ofertas especiais</label>
                                                 </div>
                                             </div>
